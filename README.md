@@ -1,5 +1,7 @@
 # User Directory Demo
 
+The User Directory App is a full-stack web application built with ASP.NET Core (backend) and Angular (frontend). It provides a centralized platform to manage users with a modern UI and secure APIs.
+
 Simple full-stack CRUD app using:
 
 - ASP.NET Core Web API (.NET 8)
