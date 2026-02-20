@@ -1,0 +1,47 @@
+<div class="form-card">
+  <h2>Add New User</h2>
+
+  <form #userForm="ngForm" (ngSubmit)="submit()" novalidate>
+    <div class="form-group" [ngClass]="{'has-error': name.invalid && name.touched}">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="user.name" name="name" #name="ngModel" required minlength="3" />
+      <div class="error-msg" *ngIf="name.invalid && name.touched">
+        Name is required (min 3 characters).
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': age.invalid && age.touched}">
+      <label>Age</label>
+      <input type="number" [(ngModel)]="user.age" name="age" #age="ngModel" required min="1" max="120" />
+      <div class="error-msg" *ngIf="age.invalid && age.touched">
+        Age must be between 1 and 120.
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': city.invalid && city.touched}">
+      <label>City</label>
+      <input type="text" [(ngModel)]="user.city" name="city" #city="ngModel" required />
+      <div class="error-msg" *ngIf="city.invalid && city.touched">
+        City is required.
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': state.invalid && state.touched}">
+      <label>State</label>
+      <input type="text" [(ngModel)]="user.state" name="state" #state="ngModel" required />
+      <div class="error-msg" *ngIf="state.invalid && state.touched">
+        State is required.
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': pincode.invalid && pincode.touched}">
+      <label>Pincode</label>
+      <input type="text" [(ngModel)]="user.pincode" name="pincode" #pincode="ngModel" required pattern="^[0-9]{6}$" />
+      <div class="error-msg" *ngIf="pincode.invalid && pincode.touched">
+        Pincode must be a 6-digit number.
+      </div>
+    </div>
+
+    <button type="submit" class="primary-btn" [disabled]="userForm.invalid">Save User</button>
+  </form>
+</div>

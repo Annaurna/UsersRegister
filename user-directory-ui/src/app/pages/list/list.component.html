@@ -1,0 +1,33 @@
+
+<div class="user-list form-card">
+  <h2>User Management</h2>
+
+ 
+      <div class="user-card">
+        
+
+<table border="1" *ngIf="users && users.length > 0;">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Pincode</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let user of users">
+    <td>{{user.id}}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.age }}</td>
+    <td>{{ user.city }}</td>
+    <td>{{ user.state }}</td>
+    <td>{{ user.pincode }}</td>
+    <td>
+      <button class="delete-btn" (click)="delete(user.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+      </div>
+</div>
